@@ -6,5 +6,6 @@ $(document).ready(function () {
         console.log(navigator);
     } else {
         console.log("No geolocation in navigator.");
+        console.log(navigator);
     }
 });
