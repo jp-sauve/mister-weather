@@ -7,6 +7,6 @@ $(document).ready(function () {
         console.log(nav);
     } else {
         console.log("No geolocation in navigator.");
-        console.log("This is " + nav[0]);
+        console.log("This is " + nav.platform);
     }
 });
