@@ -19,7 +19,7 @@
    Author's styles
    ---------------------------------------------------------*/
     body {
-
+    background-color: #AAEE55;
     }
 
 
@@ -39,7 +39,7 @@
     nav { display:none; }
 
     /* Show link destinations in brackets after the link text */
-    a[href]:after { content: " (" attr(href) ") "; }
+    a[href]:after { content: "afterHREF (" attr(href) ") "; }
     a[href] {
         font-weight:bold;
         text-decoration:underline;
