@@ -1,34 +1,32 @@
 /*jslint devel:true */
 /*global $, jQuery*/
 
-function showForecast(lat, long) {
+function showForecast(position) {
     "use strict";
-    var apiKey = "key=9251eadaf0d54c5aae630949172704",
-        myQuery = "q=" + lat + "," + long,
+    var myLatitude = position.coords.latitude,
+        myLongitude = position.coords.longitude,
+        myAccuracy = position.coords.accuracy,
+        apiKey = "key=9251eadaf0d54c5aae630949172704",
+        myQuery = "q=" + myLatitude + "," + myLongitude,
         baseURL = "https://api.apixu.com/v1/current.json?" + apiKey + "&" + myQuery;
+    $('#myLatitude').html(myLatitude);
+    $('#myLongitude').html(myLongitude);
+    $('#myAccuracy').html(myAccuracy);
+
     console.log("Showing Forecast");
     $.ajax({type: 'GET',
            dataType: 'json',
            url: baseURL,
            success: function (json) {
             console.log(json);
-            var html = "";
+            var html = "",
+                loc_html = json.location.name;
             html += json.current.temp_c;
             $('#temp').html(html);
+            $('#myCity').html(loc_html);
         },
             cache: false
            });
-}
-
-function showPosition(position) {
-    "use strict";
-    var myLatitude = position.coords.latitude,
-        myLongitude = position.coords.longitude,
-        myAccuracy = position.coords.accuracy;
-    showForecast(myLatitude, myLongitude);
-    $('#myLatitude').html(myLatitude);
-    $('#myLongitude').html(myLongitude);
-    $('#myAccuracy').html(myAccuracy);
 }
 
 
@@ -38,7 +36,7 @@ $(document).ready(function () {
     var nav = window.navigator;
     if (nav.geolocation) {
         console.log(nav);
-        nav.geolocation.getCurrentPosition(showPosition);
+        nav.geolocation.getCurrentPosition(showForecast);
     } else {
         alert("No geolocation in navigator.");
     }
