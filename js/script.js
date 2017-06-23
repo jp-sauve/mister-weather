@@ -29,38 +29,39 @@ function showForecast(position) {
             cache: false
            });
 }
-function err(err) {
+function err(errors) {
+    "use strict";
     console.log("Error Report:");
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-    console.log(err);
-
-};
+    // Following line causes error in Opera
+    // console.warn(`ERROR(${err.code}): ${err.message}`);
+    console.log(errors);
+}
 
 
 $(document).ready(function () {
     "use strict";
     console.log("Document Ready...");
     var nav = window.navigator,
-        browserChrome = null;
+        browserChrome = null,
+        options;
     if (nav.geolocation) {
 
         // Following section fixes FF53.0.3 Linux not returning position object
-        if (!!window.chrome) {
-        var options = {
-            enableHighAccuracy: true,
-            timeout: 30000,
-            maximumAge: 0
-        };
-        } else {
-            var options = {
+        if (typeof InstallTrigger !== 'undefined') {
+            options = {
                 enableHighAccuracy: false,
                 timeout: 0,
                 maximumAge: Infinity
             };
+        } else {
+            options = {
+                enableHighAccuracy: true,
+                timeout: 30000,
+                maximumAge: 0
+            };
             // FF fix finishes here
         }
         console.log("Geolocate Exists");
-     //   nav.geolocation.getCurrentPosition(function () {}, function () {}, {});
         nav.geolocation.getCurrentPosition(showForecast, err, options);
     } else {
         alert("No geolocation in navigator.");
