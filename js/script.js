@@ -48,12 +48,14 @@ $(document).ready(function () {
 
         // Following section fixes FF53.0.3 Linux not returning position object
         if (typeof InstallTrigger !== 'undefined') {
+            console.log("FF found!");
             options = {
                 enableHighAccuracy: false,
                 timeout: 0,
                 maximumAge: Infinity
             };
         } else {
+            console.log("Other browser found!");
             options = {
                 enableHighAccuracy: true,
                 timeout: 30000,
