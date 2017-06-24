@@ -11,7 +11,7 @@ function showForecast(position) {
         this.myLatitude = position.coords.latitude;
         this.myLongitude = position.coords.longitude;
         this.myAccuracy = position.coords.accuracy;
-        this.conditions = $.getJSON("../data/conditions.json");
+        this.conditions = $.getJSON("/mister-weather/data/conditions.json");
         this.tempUnit = "c";
         this.apiKey = "key=9251eadaf0d54c5aae630949172704";
         this.myQuery = "q=" + this.myLatitude + "," + this.myLongitude;
