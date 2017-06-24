@@ -11,7 +11,7 @@ function showForecast(position) {
         this.myLatitude = position.coords.latitude;
         this.myLongitude = position.coords.longitude;
         this.myAccuracy = position.coords.accuracy;
-        this.conditions = $.getJSON("data/conditions.json");
+        this.conditions = $.getJSON("../data/conditions.json");
         this.tempUnit = "c";
         this.apiKey = "key=9251eadaf0d54c5aae630949172704";
         this.myQuery = "q=" + this.myLatitude + "," + this.myLongitude;
@@ -34,7 +34,7 @@ function updateForecast(json) {
     dataObj.json = json;
     var html = "",
         loc_html = json.location.name,
-        curr_temp = (parseFloat((dataObj.tempUnit === "c") ? json.current.temp_c : json.current.temp_f));
+        curr_temp = (parseFloat((dataObj.tempUnit === "c") ? json.current.temp_c : json.current.temp_f)),
  /*       icon_num = $.each(dataObj.conditions,function(key,val){
             $.each(val,function(key1,val1) {
             console.log("IconNum: "+key1+ " " + val1);
@@ -42,7 +42,7 @@ function updateForecast(json) {
             })
         });
     */
-    curr_icon = dataObj.imgURLbase + ((dataObj.json.current.condition.is_day) ? "day/" : "night/") + ".png";
+    curr_icon = dataObj.imgURLbase + ((dataObj.json.current.condition.is_day) ? "day/" : "night/") + "113.png";
         //    curr_temp = 99.99;
     console.log("curr_temp: " + curr_temp);
     var curr_temp_left = (function () {
