@@ -22,9 +22,65 @@
     background-color: #111111;
     color: cornsilk;
     }
+#outer-wrapper {
+    max-width: 400px;
+    margin: auto;
+    padding: 0px 20px;
+    background-color: #595959;
+}
+article.info-box {
+    background-color: #898989;
+    color: black;
+    border-radius: 10px;
+    padding: 1em;
+    margin: 10px 15px 10px 15px;
+    display: block;
+    overflow: auto;
+}
+div.title h1 {
+    color: whitesmoke;
+    text-align: center;
+}
+#myCity {
+    text-align: center;
+}
 
+#curr_temp_left, #curr_temp_right, span#degr, #unit {
+    font-family: 'LCDBOLD';
+}
+#curr_temp_left {
+    font-size: 6em;
+}
+#curr_temp_left::after {
 
-
+}
+#curr_temp_right {
+    font-size: 2em;
+    position: relative;
+    left: -1.1em;
+}
+span#degr {
+    font-size: 2em;
+    position: relative;
+    top: -1.6em;
+    left: .05em;
+    color: #111;
+}
+span#unit {
+    font-size: 2em;
+    position: relative;
+    top: -1.5em;
+    left: 0.05em;
+    color: black;
+}
+.left {
+    width: 50%;
+    float: left;
+}
+.right {
+    width: 50%;
+    margin-left: 50%;
+}
 /* ---------------------------------------------------------
    Print styles
    ---------------------------------------------------------*/
@@ -65,8 +121,8 @@
 --------------------------------------------------------------*/
 @font-face {
 	font-family: 'LCDBOLD';
-	src: url('./LCDBOLD.eot');
-	src: local('LCDBOLD'), url('./LCDBOLD.woff') format('woff'), url('./LCDBOLD.ttf') format('truetype');
+	src: url('./fonts/LCDBOLD.eot');
+	src: local('LCDBOLD'), url('./fonts/LCDBOLD.woff') format('woff'), url('./fontsLCDBOLD.ttf') format('truetype');
 }
 /* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_523">Text with this font applied</p> */
 .fontsforweb_fontid_523 {
