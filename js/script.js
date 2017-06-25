@@ -30,7 +30,7 @@ function showForecast(position) {
 
 function updateForecast(json) {
     "use strict";
-    console.log(json);
+    console.log(JSON.stringify(json));
     dataObj.json = json;
     var html = "",
         loc_html = json.location.name,
