@@ -22,16 +22,21 @@
     background-color: #111111;
     color: cornsilk;
     }
+.center-text {
+    text-align: center;
+}
 #outer-wrapper {
     max-width: 400px;
     margin: auto;
-    padding: 0px 20px;
+    padding: 0px 20px 10px 20px;
     background-color: #595959;
+    border-radius: 5px;
 }
 article.info-box {
     background-color: #898989;
     color: black;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #393939;
     padding: 1em;
     margin: 10px 15px 10px 15px;
     display: block;
@@ -40,13 +45,17 @@ article.info-box {
 div.title h1 {
     color: whitesmoke;
     text-align: center;
+    margin-bottom: 0;
 }
-#myCity {
+span#myCity, h2{
     text-align: center;
+    margin-top: 0.25em;
+    margin-bottom: 0em;
 }
 
 #curr_temp_left, #curr_temp_right, span#degr, #unit {
     font-family: 'LCDBOLD';
+    text-shadow: 1px 1px 2px black;
 }
 #curr_temp_left {
     font-size: 6em;
@@ -80,6 +89,13 @@ span#unit {
 .right {
     width: 50%;
     margin-left: 50%;
+}
+footer {
+    text-align: center;
+    font-size: .75em;
+}
+#buttonBox button {
+    box-shadow: 1px 1px 2px #696969;
 }
 /* ---------------------------------------------------------
    Print styles
