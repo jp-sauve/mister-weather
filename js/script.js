@@ -51,7 +51,8 @@ function updateForecast(json) {
         if ((dataObj.conditions[key].code) === (dataObj.json.current.condition.code)) {
  //           console.log("FOUND MATCH: " + dataObj.json.current.condition.code);
             dataObj.iconCode = dataObj.conditions[key].icon;
-            if (dataObj.json.current.condition.is_day) {
+     //       console.log("Day? " + JSON.stringify(dataObj.json.current.is_day));
+            if (dataObj.json.current.is_day) {
                 dataObj.conditionText = dataObj.conditions[key].day;
             } else {
                 dataObj.conditionText = dataObj.conditions[key].night;
@@ -62,7 +63,8 @@ function updateForecast(json) {
     var html = "",
         loc_html = dataObj.json.location.name,
         curr_temp = (parseFloat((dataObj.tempUnit === "c") ? dataObj.json.current.temp_c : dataObj.json.current.temp_f)),
-        curr_icon = dataObj.imgURLbase + ((dataObj.json.current.condition.is_day) ? "day/" : "night/") + dataObj.iconCode + ".png";
+        curr_icon = dataObj.imgURLbase + ((dataObj.json.current.is_day) ? "day/" : "night/") + dataObj.iconCode + ".png";
+        console.log("Curr:" + curr_icon);
         //TESTING OVERRIDE
         //curr_temp = 99.99;
     var curr_temp_left = (function () {
@@ -75,7 +77,7 @@ function updateForecast(json) {
 
     $('span#condition-text').html(dataObj.conditionText);
 
-    $('span#time-phrase').html((dataObj.json.current.condition.is_day ? "today" : "tonight"));
+    $('span#time-phrase').html((dataObj.json.current.is_day ? "today" : "tonight"));
     $('button#toggleUnit #other-unit').html((dataObj.tempUnit === "c") ? "F" : "C");
     $('#curr_temp_left').html(curr_temp_left);
     $('#curr_temp_right').html("." + ('0' + curr_temp_right).slice(-1));
