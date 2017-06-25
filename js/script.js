@@ -17,7 +17,7 @@ function showForecast(position) {
         this.tempUnit = "c";
         this.apiKey = "key=9251eadaf0d54c5aae630949172704";
         this.myQuery = "q=" + this.myLatitude + "," + this.myLongitude;
-        this.imgURLbase = "mister-weather/data/weather/64x64/";
+        this.imgURLbase = "/data/weather/64x64/";
         this.baseURL = "https://api.apixu.com/v1/current.json?" + this.apiKey + "&" + this.myQuery;
     })();
     $.getJSON("/mister-weather/data/conditions.json", function (data) {
